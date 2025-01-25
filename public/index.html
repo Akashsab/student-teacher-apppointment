@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7pZBcR34gTrZW0bmiFoXo5zyUHvXhvoE",
+            authDomain: "student-teacher-appointm-3f9f8.firebaseapp.com",
+            projectId: "student-teacher-appointm-3f9f8",
+            storageBucket: "student-teacher-appointm-3f9f8.firebasestorage.app",
+            messagingSenderId: "1044593100153",
+            appId: "1:1044593100153:web:3b828ee926651e74a91ba8",
+            measurementId: "G-VMFQN26S63"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Sign in the user
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Fetch user role from Firestore
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                const userData = userDoc.data();
+
+                if (!userData) {
+                    throw new Error("User data not found");
+                }
+
+                // Redirect based on role
+                if (userData.role === 'admin') {
+                    window.location.href = 'admin.html';
+                } else if (userData.role === 'teacher') {
+                    window.location.href = 'teacher.html';
+                } else if (userData.role === 'student') {
+                    window.location.href = 'student.html';
+                } else {
+                    alert('Role not recognized');
+                }
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+
+        // Sign out functionality
+        function signOutUser() {
+            signOut(auth).then(() => {
+                console.log('User signed out');
+                window.location.href = 'login.html';  // Redirect to login page
+            }).catch((error) => {
+                console.error('Sign out error:', error.message);
+            });
+        }
+
+        // Add event listener for sign out button
+        document.getElementById('signOutButton').addEventListener('click', signOutUser);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Login</h1>
+    </header>
+    <main>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a></p>
+
+        <!-- Sign-out button (display only if user is logged in) -->
+        <button id="signOutButton" style="display: none;">Sign Out</button>
+    </main>
+</body>
+</html>
+
+

@@ -1,0 +1,101 @@
+[debug] [2025-01-24T17:42:34.325Z] ----------------------------------------------------------------------
+[debug] [2025-01-24T17:42:34.328Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2025-01-24T17:42:34.329Z] CLI Version:   13.29.2
+[debug] [2025-01-24T17:42:34.329Z] Platform:      win32
+[debug] [2025-01-24T17:42:34.329Z] Node Version:  v22.13.1
+[debug] [2025-01-24T17:42:34.329Z] Time:          Fri Jan 24 2025 23:12:34 GMT+0530 (India Standard Time)
+[debug] [2025-01-24T17:42:34.329Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-24T17:42:34.333Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-01-24T17:42:34.604Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-24T17:42:34.604Z] > authorizing via signed-in user (akashsab2005@gmail.com)
+[debug] [2025-01-24T17:42:34.604Z] [iam] checking project student-teacher-appointm-3f9f8 for permissions ["firebase.projects.get"]
+[debug] [2025-01-24T17:42:34.605Z] Checked if tokens are valid: false, expires at: 1737731455142
+[debug] [2025-01-24T17:42:34.605Z] Checked if tokens are valid: false, expires at: 1737731455142
+[debug] [2025-01-24T17:42:34.606Z] > refreshing access token with scopes: []
+[debug] [2025-01-24T17:42:34.606Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-01-24T17:42:34.607Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-24T17:42:34.920Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-01-24T17:42:34.921Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-24T17:42:34.950Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8:testIamPermissions [none]
+[debug] [2025-01-24T17:42:34.951Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8:testIamPermissions x-goog-quota-user=projects/student-teacher-appointm-3f9f8
+[debug] [2025-01-24T17:42:34.951Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-01-24T17:42:35.252Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-01-24T17:42:35.253Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-01-24T17:42:36.579Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8:testIamPermissions 200
+[debug] [2025-01-24T17:42:36.580Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-01-24T17:42:36.582Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:36.582Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:36.583Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8 [none]
+[debug] [2025-01-24T17:42:36.923Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8 200
+[debug] [2025-01-24T17:42:36.923Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/student-teacher-appointm-3f9f8 {"projectNumber":"1044593100153","projectId":"student-teacher-appointm-3f9f8","lifecycleState":"ACTIVE","name":"student teacher appointment ","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-01-23T16:36:33.676280Z"}
+[info] 
+[info] === Serving from 'C:\Users\Admin\Desktop\internship\student teacher apointment booking'...
+[info] 
+[debug] [2025-01-24T17:42:36.933Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:36.934Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:36.937Z] defaultcredentials: writing to file C:\Users\Admin\AppData\Roaming\firebase\akashsab2005_gmail_com_application_default_credentials.json
+[debug] [2025-01-24T17:42:36.937Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/sites 
+[debug] [2025-01-24T17:42:36.942Z] Setting GAC to C:\Users\Admin\AppData\Roaming\firebase\akashsab2005_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Admin\\AppData\\Roaming\\firebase\\akashsab2005_gmail_com_application_default_credentials.json"}}
+[debug] [2025-01-24T17:42:36.942Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:36.943Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:36.943Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/adminSdkConfig [none]
+[debug] [2025-01-24T17:42:37.498Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/adminSdkConfig 200
+[debug] [2025-01-24T17:42:37.499Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/adminSdkConfig {"projectId":"student-teacher-appointm-3f9f8","databaseURL":"https://student-teacher-appointm-3f9f8-default-rtdb.firebaseio.com","storageBucket":"student-teacher-appointm-3f9f8.firebasestorage.app"}
+[debug] [2025-01-24T17:42:38.097Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/sites 200
+[debug] [2025-01-24T17:42:38.098Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/sites {"sites":[{"name":"projects/student-teacher-appointm-3f9f8/sites/student-teacher-appointm-3f9f8","defaultUrl":"https://student-teacher-appointm-3f9f8.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-01-24T17:42:38.098Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:38.098Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:38.098Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/webApps/-/config [none]
+[debug] [2025-01-24T17:42:39.178Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/webApps/-/config 200
+[debug] [2025-01-24T17:42:39.179Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8/webApps/-/config {"projectId":"student-teacher-appointm-3f9f8","appId":"1:1044593100153:web:3b828ee926651e74a91ba8","databaseURL":"https://student-teacher-appointm-3f9f8-default-rtdb.firebaseio.com","storageBucket":"student-teacher-appointm-3f9f8.firebasestorage.app","apiKey":"AIzaSyA7pZBcR34gTrZW0bmiFoXo5zyUHvXhvoE","authDomain":"student-teacher-appointm-3f9f8.firebaseapp.com","messagingSenderId":"1044593100153","measurementId":"G-VMFQN26S63"}
+[debug] [2025-01-24T17:42:39.200Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:39.200Z] Checked if tokens are valid: true, expires at: 1737744152921
+[debug] [2025-01-24T17:42:39.201Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8 [none]
+[debug] [2025-01-24T17:42:39.677Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8 200
+[debug] [2025-01-24T17:42:39.677Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/student-teacher-appointm-3f9f8 {"projectId":"student-teacher-appointm-3f9f8","projectNumber":"1044593100153","displayName":"student teacher appointment ","name":"projects/student-teacher-appointm-3f9f8","resources":{"hostingSite":"student-teacher-appointm-3f9f8","realtimeDatabaseInstance":"student-teacher-appointm-3f9f8-default-rtdb"},"state":"ACTIVE","etag":"1_c86eaddb-a38e-403a-a75a-673681b98b4c"}
+[info] i  functions: Watching "C:\Users\Admin\Desktop\internship\student teacher apointment booking\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Admin\\Desktop\\internship\\student teacher apointment booking\\functions\" for Cloud Functions..."}}
+[info] i  hosting[student-teacher-appointm-3f9f8]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[student-teacher-appointm-3f9f8]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2025-01-24T17:42:39.717Z] Validating nodejs source
+[debug] [2025-01-24T17:42:41.154Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-01-24T17:42:41.154Z] Building nodejs source
+[debug] [2025-01-24T17:42:41.155Z] Failed to find version of module node: reached end of search path C:\Users\Admin\Desktop\internship\student teacher apointment booking\functions\node_modules
+[info] +  functions: Using node@22 from host. 
+[debug] [2025-01-24T17:42:41.158Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-01-24T17:42:41.166Z] Found firebase-functions binary at 'C:\Users\Admin\Desktop\internship\student teacher apointment booking\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8972
+
+[debug] [2025-01-24T17:42:41.686Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] +  functions: Loaded functions definitions from source: . {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ."}}
+[info] i  hosting: ::1 - - [24/Jan/2025:17:48:21 +0000] "GET /register.html HTTP/1.1" 200 - "http://localhost:5000/index.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [24/Jan/2025:17:48:21 +0000] \"GET /register.html HTTP/1.1\" 200 - \"http://localhost:5000/index.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0\""}}
+[info] i  hosting: ::1 - - [24/Jan/2025:17:48:22 +0000] "GET /favicon.ico HTTP/1.1" 304 - "http://localhost:5000/register.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [24/Jan/2025:17:48:22 +0000] \"GET /favicon.ico HTTP/1.1\" 304 - \"http://localhost:5000/register.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0\""}}
+[info] i  hosting: ::1 - - [24/Jan/2025:17:48:22 +0000] "GET /register.html HTTP/1.1" 200 - "http://localhost:5000/index.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [24/Jan/2025:17:48:22 +0000] \"GET /register.html HTTP/1.1\" 200 - \"http://localhost:5000/index.html\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0\""}}

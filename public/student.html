@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"></script>
+
+    <!-- Firebase config script -->
+    <script src="firebaseConfig.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Student Portal</h1>
+    </header>
+    <main>
+        <h2>Schedule an Appointment</h2>
+        <form id="studentAppointmentForm">
+            <label for="teacherEmail">Enter Teacher's Email:</label>
+            <input type="email" id="teacherEmail" name="teacherEmail" required placeholder="teacher@example.com">
+            <br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <br>
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+            <br>
+            <button type="submit">Schedule Appointment</button>
+        </form>
+        <a href="index.html" class="back-button"><button id="signOutButton">Sign Out</button></a>
+    </main>
+
+    <script type="module">
+        import { db } from './firebaseConfig.js';
+
+        // Function to create an appointment
+        function createAppointment() {
+            const teacherEmail = document.getElementById('teacherEmail').value; // Get teacher's email
+            const appointmentDate = document.getElementById('date').value;
+            const appointmentTime = document.getElementById('time').value;
+            const userId = firebase.auth().currentUser.uid;
+
+            if (!teacherEmail || !appointmentDate || !appointmentTime) {
+                alert('Please fill in all fields!');
+                return;
+            }
+
+            // Check if the teacher's email exists in the database
+            db.collection('teachers').where('email', '==', teacherEmail).get()
+                .then((querySnapshot) => {
+                    if (querySnapshot.empty) {
+                        alert('Teacher not found. Please check the email.');
+                        return;
+                    }
+
+                    const teacherDoc = querySnapshot.docs[0]; // Get the first matched document
+                    const teacherId = teacherDoc.id; // Extract the teacher ID
+
+                    // Create an appointment
+                    db.collection('appointments').add({
+                        teacherId: teacherId,
+                        studentId: userId,
+                        date: appointmentDate,
+                        time: appointmentTime,
+                        status: 'Pending',
+                    })
+                        .then(() => {
+                            alert('Your appointment has been scheduled successfully!');
+                            document.getElementById('studentAppointmentForm').reset(); // Clear the form
+                        })
+                        .catch((error) => {
+                            console.error('Error scheduling appointment:', error.message);
+                            alert('Error scheduling appointment: ' + error.message);
+                        });
+                })
+                .catch((error) => {
+                    console.error('Error fetching teacher:', error.message);
+                    alert('Error fetching teacher: ' + error.message);
+                });
+        }
+
+        // Add event listener to the form submission
+        document.getElementById('studentAppointmentForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent form from submitting normally
+            createAppointment(); // Call the function to handle the logic
+        });
+
+        // Sign-out functionality
+        document.getElementById('signOutButton').addEventListener('click', () => {
+            firebase.auth().signOut()
+                .then(() => {
+                    alert('You have been signed out successfully.');
+                    window.location.href = 'login.html'; // Redirect to login page
+                })
+                .catch((error) => {
+                    console.error('Sign-out error:', error.message);
+                    alert('Error signing out: ' + error.message);
+                });
+        });
+    </script>
+</body>
+</html>
+
+
+
+

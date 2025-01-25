@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"></script>
+
+    <!-- Firebase config script -->
+    <script src="firebaseConfig.js"></script>
+
+    <script>
+        window.onload = () => {
+            const signOutButton = document.getElementById('signOutButton');
+            const auth = firebase.auth();
+
+            // Sign-out button event
+            signOutButton.addEventListener('click', async () => {
+                console.log("Sign-out button clicked"); // This log confirms the button was clicked
+                try {
+                    await auth.signOut(); // Sign-out action
+                    alert('Signed out successfully!');
+                    window.location.href = 'index.html'; // Redirect to login page
+                } catch (error) {
+                    console.error('Sign-out error:', error.message); // Log error in the console
+                    alert('Error signing out: ' + error.message); // Display error message to user
+                }
+            });
+
+            // Role-based page access check
+            firebase.auth().onAuthStateChanged(async (user) => {
+                if (!user) {
+                    window.location.href = 'index.html'; // Redirect to login if not logged in
+                    return;
+                }
+
+                const userDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+                const userData = userDoc.data();
+
+                if (userData.role !== 'admin' && location.pathname.includes('admin.html')) {
+                    alert('Unauthorized access!');
+                    window.location.href = 'index.html'; // Redirect if not admin
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Admin Portal</h1>
+    </header>
+    <main>
+        <h2>Manage Appointments</h2>
+        <p>View and manage all appointments here.</p>
+    </main>
+    
+    <a href="index.html" class="back-button"><button id="signOutButton">Sign Out</button></a>
+</body>
+</html>
+
