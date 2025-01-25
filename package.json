@@ -1,13 +1,16 @@
 {
-  "name": "student-teacher-appointment",
-  "description": "A Node.js web application for managing student-teacher appointments.",
-  "version": "1.0.0",
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
   "scripts": {
-    "start": "node index.js", // Render uses this to start your app 
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "node index.js",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "18" // Use Node.js 18 (Render supports this version)
+    "node": "22"
   },
   "main": "index.js",
   "dependencies": {
