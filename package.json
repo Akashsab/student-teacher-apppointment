@@ -3,7 +3,7 @@
   "description": "A Node.js web application for managing student-teacher appointments.",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js", // Render uses this to start your app
+    "start": "node index.js", // Render uses this to start your app 
     "lint": "eslint ."
   },
   "engines": {
